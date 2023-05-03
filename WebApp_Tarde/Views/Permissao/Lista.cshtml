@@ -1,0 +1,41 @@
+﻿@model List<WebApp_Tarde.Entidades.PermissaoEntidade>
+    
+<div class="class">
+    <div class="card-header">
+        <h2>Lista de Permissões</h2>
+       
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <a href="/Permissao/Cadastro/" class="btn btn-primary">Ir para a lista de permissões</a>
+        </div>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var permissao in Model)
+                {
+                    <tr>
+                        <td>@permissao.ID</td>
+                        <td>@permissao.Descricao</td>
+                        <td>
+                            <a href="/Permissao/Editar/@permissao.ID" class="btn btn-warning">Editar</a>
+                        </td>
+                        <td>
+                            <a href="/Permissao/Excluir/@permissao.ID" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    

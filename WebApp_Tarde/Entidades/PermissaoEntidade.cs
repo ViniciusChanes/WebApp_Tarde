@@ -1,16 +1,9 @@
 ﻿namespace WebApp_Tarde.Entidades
 {
-    public class ProdutoEntidade
+    public class PermissaoEntidade
     {
-
         public int ID { get; set; }
-
         public string Descricao { get; set; }
-
-        public decimal Valor { get; set; }
-
-        public bool Ativo { get; set; }
-
 
     }
 }
