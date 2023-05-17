@@ -1,0 +1,51 @@
+﻿
+@model List<WebApp_Tarde.Entidades.CategoriaEntidade>
+
+<div class="card">
+    <div class="card-header">
+        Lista de Categorias
+    </div>
+    <div style="text-align: center; ">
+        <a class="btn btn-primary" href="/Categorias/Cadastro">Cadastrar categorias</a>
+    </div>
+    
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Ativo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var categoria in Model)
+                {
+                    <tr>
+                        <td>@categoria.Id</td>
+                        <td>@categoria.Nome</td>
+                        <td>
+                            @if (@categoria.Ativo)
+                            {
+                                <input type="checkbox" disabled checked />
+                            }else
+                            {
+                                <input type="checkbox" disabled />
+                            }
+                        </td>
+                        <td>
+                            <a href="/Categorias/Editar/@categoria.Id" class="btn btn-warning">
+                                Editar
+                                </a>
+                            <a href="/Categorias/Excluir/@categoria.Id" class="btn btn-danger">
+                                Editar
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

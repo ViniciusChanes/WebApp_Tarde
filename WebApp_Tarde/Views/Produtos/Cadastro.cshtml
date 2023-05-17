@@ -1,20 +1,40 @@
-﻿<h2>Cadastrar produtos</h2>
+﻿@model WebApp_Tarde.Models.NovoProdutoViewModel
 
-<form action="" method="post">
+<h2>Cadastrar produtos</h2>
+
+<form action="/Produtos/SalvarDados" method="post">
 
     <div class="form-group">
         <label>Nome do produto</label>
-        <input name="Nome" type="text" class="form-control" />
+        <input name="Descricao" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label>Codigo</label>
-        <input name="Codigo" typer="number" class="form-control" />
+        <label>Valor</label>
+        <input name="Valor" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
         <label>Quantidade</label>
-        <input name="Quantidade" typer="text" class="form-control" />
+        <input name="Quantidade" type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Ativo</label>
+        <select name="Ativo" class="form-control">
+            <option value="true">Ativo</option>
+            <option value="false">Desativado</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Categoria</label>
+        <select name="CategoriaId" class="form-control">
+            @foreach (var categoria in Model.Lista_Categorias)
+            {
+                <option value="@categoria.Id">@categoria.Nome</option>
+            }
+        </select>
     </div>
 
     <button class="btn btn-success" type="submit">

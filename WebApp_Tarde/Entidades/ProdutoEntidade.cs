@@ -3,7 +3,7 @@
     public class ProdutoEntidade
     {
 
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         public string Descricao { get; set; }
 
@@ -11,6 +11,9 @@
 
         public bool Ativo { get; set; }
 
+        public CategoriaEntidade Categoria { get; set; }
+
+        public int CategoriaId { get; set; }
 
     }
 }

@@ -1,0 +1,67 @@
+﻿
+@model List<WebApp_Tarde.Entidades.ProdutoEntidade>
+
+<div class="card">
+
+    <div class="card-header">
+        <h2>Lista de Produtos</h2>
+    </div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-2">
+                <a href="/Produtos/Cadastro"
+                   class="btn btn-success">
+                    Novo Produto
+                </a>
+            </div>
+            <div class="col-3">
+                <select name="filtro" class="form-control">
+                    <option value="0">Todos os campos</option>
+                    <option value="id">Por Id</option>
+                    <option value="descricao">Por Descrição</option>
+                </select>
+            </div>
+            <div class="col-5">
+                <input type="text" name="busca" class="form-control" />
+            </div>
+            <div class="col-2">
+                <button class="btn btn-primary" type="submit">
+                    Pesquisar
+                </button>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Categoria</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var produto in Model)
+                {
+                    <tr>
+                        <td>@produto.Id</td>
+                        <td>@produto.Descricao</td>
+                        <td>R$ @produto.Valor</td>
+                        <td>@produto.Categoria.Nome</td>
+                        <td>
+                            <a href="/Produtos/editar/@produto.Id" class="btn btn-warning">
+                                Editar
+                            </a>
+                            <a href="/Produtos/excluir/@produto.Id" class="btn btn-danger">
+                                Excluir
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
