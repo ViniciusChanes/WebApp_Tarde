@@ -7,7 +7,7 @@ namespace WebApp_Tarde.Controllers
 {
     public class ProdutosController : Controller
     {
-        public IActionResult Index() // equivalente  a lista
+        public IActionResult Lista() // equivalente  a lista
         {
             return View( db.Produtos.Include(a => a.Categoria).ToList() );
         }
